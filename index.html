@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Admissions | Jakes Divinity School</title>
+  <meta name="description" content="Submit your inquiry to our admissions team at Jakes Divinity School." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-purple: #3f1e53;
+      --brand-purple-deep: #2a1338;
+      --gradient-brand: linear-gradient(135deg, #2a1338 0%, #3f1e53 100%);
+      --success: #22c55e;
+      --destructive: #dc2626;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f7f9fc;
+      color: #1f2937;
+    }
+
+    .brand-header {
+      background: var(--gradient-brand);
+    }
+
+    .section-header {
+      background: var(--gradient-brand);
+      color: #fff;
+    }
+
+    .brand-text {
+      color: var(--brand-purple);
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .08), 0 8px 24px rgba(0, 0, 0, .06);
+    }
+
+    .field label {
+      display: block;
+      font-size: .875rem;
+      font-weight: 500;
+      margin-bottom: .375rem;
+      color: #1f2937;
+    }
+
+    .req {
+      color: var(--destructive);
+    }
+
+    .input,
+    .select {
+      width: 100%;
+      height: 2.5rem;
+      padding: 0 .75rem;
+      border: 1px solid #e5e7eb;
+      border-radius: .5rem;
+      background: #fff;
+      font-size: .875rem;
+      font-family: inherit;
+    }
+
+    .input:focus,
+    .select:focus {
+      outline: none;
+      border-color: var(--brand-purple);
+      box-shadow: 0 0 0 3px rgba(63, 30, 83, .15);
+    }
+
+    .input:disabled,
+    .select:disabled {
+      background: #f9fafb;
+      color: #9ca3af;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--gradient-brand);
+      color: #fff;
+      font-weight: 600;
+      padding: .75rem 1.5rem;
+      border-radius: .5rem;
+      width: 100%;
+      font-size: 1rem;
+      transition: opacity .2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      opacity: .92;
+    }
+
+    .btn-primary:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    .error {
+      color: var(--destructive);
+      font-size: .8rem;
+      margin-top: .25rem;
+    }
+
+    .input.invalid,
+    .select.invalid {
+      border-color: var(--destructive);
+    }
+
+    .checkbox {
+      width: 1rem;
+      height: 1rem;
+      accent-color: var(--brand-purple);
+    }
+
+    .fade-in {
+      animation: fadeIn .5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .success-icon {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 9999px;
+      background: rgba(34, 197, 94, .1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="brand-header py-6 md:py-8 relative">
+    <div class="max-w-6xl mx-auto px-4 flex items-center justify-center">
+      <button type="button"
+        class="absolute top-4 right-4 md:right-6 inline-flex items-center rounded-full border border-white/25 bg-white/15 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-white/20">
+        Dev Org
+      </button>
+      <img
+        src="data:image/png;base64,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"
+        alt="Jakes Divinity School" class="h-16 md:h-20 w-auto" />
+    </div>
+  </header>
+
+  <main class="py-8 md:py-12 px-4">
+    <div class="max-w-2xl mx-auto">
+      <div id="form-view" class="fade-in">
+        <div class="text-center mb-8">
+          <h1 class="text-3xl md:text-4xl font-bold mb-3 brand-text">Contact Us</h1>
+          <p class="text-gray-500 text-lg max-w-md mx-auto">Take the first step toward your academic journey. Complete
+            the form below and we'll be in touch.</p>
+        </div>
+
+        <div class="card p-6 md:p-8">
+          <iframe name="w2l_target" id="w2l_target" style="display:none;" title="Web-to-Lead submission target"></iframe>
+          <form id="contact-form" target="w2l_target"
+            action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DU800000B4Hoj"
+            method="POST" novalidate>
+            <input type="hidden" name="oid" value="00DU800000B4Hoj">
+            <input type="hidden" name="retURL" value="http://">
+
+            <!--  ----------------------------------------------------------------------  -->
+            <!--  NOTE: These fields are optional debugging elements. Comment these back  -->
+            <!--  out once debugging is done - Salesforce emails the real processing      -->
+            <!--  outcome (success/failure/reason) to debugEmail for every submission.    -->
+            <!--  ----------------------------------------------------------------------  -->
+            <input type="hidden" name="debug" value="1">
+            <input type="hidden" name="debugEmail" value="aryan@atakinteractive.com">
+
+            <div class="section-header flex items-center gap-3 px-5 py-3 rounded-xl mb-4">
+              <span class="uppercase tracking-wide text-sm font-semibold">Personal Information</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div class="field">
+                <label for="first_name">First Name <span class="req">*</span></label>
+                <input id="first_name" maxlength="40" name="first_name" size="20" type="text" class="input"
+                  placeholder="Enter your first name" />
+                <div class="error" data-err="first_name"></div>
+              </div>
+
+              <div class="field">
+                <label for="last_name">Last Name <span class="req">*</span></label>
+                <input id="last_name" maxlength="80" name="last_name" size="20" type="text" class="input"
+                  placeholder="Enter your last name" />
+                <div class="error" data-err="last_name"></div>
+              </div>
+            </div>
+
+            <div id="personal-details-row" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4"></div>
+            <div id="personal-country-row" class="mb-4"></div>
+
+            <div class="section-header flex items-center gap-3 px-5 py-3 rounded-xl mb-4 mt-6">
+              <span class="uppercase tracking-wide text-sm font-semibold">Contact Information</span>
+            </div>
+            <div id="contact-email-row" class="mb-4"></div>
+            <div id="contact-phone-row" class="mb-4"></div>
+            <div id="contact-preferred-row" class="mb-4"></div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div class="field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input id="email" maxlength="80" name="email" size="20" type="email" class="input"
+                  placeholder="you@example.com" />
+                <div class="error" data-err="email"></div>
+              </div>
+
+              <div class="field">
+                <label for="country_code">Country <span class="req">*</span></label>
+                <select id="country_code" name="country_code" class="select">
+                  <option value="">--None--</option>
+                  <option value="US">US</option>
+                  <option value="AF">AF</option>
+                  <option value="AX">AX</option>
+                  <option value="AL">AL</option>
+                  <option value="DZ">DZ</option>
+                  <option value="AD">AD</option>
+                  <option value="AO">AO</option>
+                  <option value="AI">AI</option>
+                  <option value="AQ">AQ</option>
+                  <option value="AG">AG</option>
+                  <option value="AR">AR</option>
+                  <option value="AM">AM</option>
+                  <option value="AW">AW</option>
+                  <option value="AU">AU</option>
+                  <option value="AT">AT</option>
+                  <option value="AZ">AZ</option>
+                  <option value="BS">BS</option>
+                  <option value="BH">BH</option>
+                  <option value="BD">BD</option>
+                  <option value="BB">BB</option>
+                  <option value="BY">BY</option>
+                  <option value="BE">BE</option>
+                  <option value="BZ">BZ</option>
+                  <option value="BJ">BJ</option>
+                  <option value="BM">BM</option>
+                  <option value="BT">BT</option>
+                  <option value="BO">BO</option>
+                  <option value="BQ">BQ</option>
+                  <option value="BA">BA</option>
+                  <option value="BW">BW</option>
+                  <option value="BV">BV</option>
+                  <option value="BR">BR</option>
+                  <option value="IO">IO</option>
+                  <option value="BN">BN</option>
+                  <option value="BG">BG</option>
+                  <option value="BF">BF</option>
+                  <option value="BI">BI</option>
+                  <option value="KH">KH</option>
+                  <option value="CM">CM</option>
+                  <option value="CA">CA</option>
+                  <option value="CV">CV</option>
+                  <option value="KY">KY</option>
+                  <option value="CF">CF</option>
+                  <option value="TD">TD</option>
+                  <option value="CL">CL</option>
+                  <option value="CN">CN</option>
+                  <option value="TW">TW</option>
+                  <option value="CX">CX</option>
+                  <option value="CC">CC</option>
+                  <option value="CO">CO</option>
+                  <option value="KM">KM</option>
+                  <option value="CG">CG</option>
+                  <option value="CD">CD</option>
+                  <option value="CK">CK</option>
+                  <option value="CR">CR</option>
+                  <option value="CI">CI</option>
+                  <option value="HR">HR</option>
+                  <option value="CU">CU</option>
+                  <option value="CW">CW</option>
+                  <option value="CY">CY</option>
+                  <option value="CZ">CZ</option>
+                  <option value="DK">DK</option>
+                  <option value="DJ">DJ</option>
+                  <option value="DM">DM</option>
+                  <option value="DO">DO</option>
+                  <option value="EC">EC</option>
+                  <option value="EG">EG</option>
+                  <option value="SV">SV</option>
+                  <option value="GQ">GQ</option>
+                  <option value="ER">ER</option>
+                  <option value="EE">EE</option>
+                  <option value="ET">ET</option>
+                  <option value="FK">FK</option>
+                  <option value="FO">FO</option>
+                  <option value="FJ">FJ</option>
+                  <option value="FI">FI</option>
+                  <option value="FR">FR</option>
+                  <option value="GF">GF</option>
+                  <option value="PF">PF</option>
+                  <option value="TF">TF</option>
+                  <option value="GA">GA</option>
+                  <option value="GM">GM</option>
+                  <option value="GE">GE</option>
+                  <option value="DE">DE</option>
+                  <option value="GH">GH</option>
+                  <option value="GI">GI</option>
+                  <option value="GR">GR</option>
+                  <option value="GL">GL</option>
+                  <option value="GD">GD</option>
+                  <option value="GP">GP</option>
+                  <option value="GT">GT</option>
+                  <option value="GG">GG</option>
+                  <option value="GN">GN</option>
+                  <option value="GW">GW</option>
+                  <option value="GY">GY</option>
+                  <option value="HT">HT</option>
+                  <option value="HM">HM</option>
+                  <option value="VA">VA</option>
+                  <option value="HN">HN</option>
+                  <option value="HU">HU</option>
+                  <option value="IS">IS</option>
+                  <option value="IN">IN</option>
+                  <option value="ID">ID</option>
+                  <option value="IR">IR</option>
+                  <option value="IQ">IQ</option>
+                  <option value="IE">IE</option>
+                  <option value="IM">IM</option>
+                  <option value="IL">IL</option>
+                  <option value="IT">IT</option>
+                  <option value="JM">JM</option>
+                  <option value="JP">JP</option>
+                  <option value="JE">JE</option>
+                  <option value="JO">JO</option>
+                  <option value="KZ">KZ</option>
+                  <option value="KE">KE</option>
+                  <option value="KI">KI</option>
+                  <option value="KP">KP</option>
+                  <option value="KR">KR</option>
+                  <option value="KW">KW</option>
+                  <option value="KG">KG</option>
+                  <option value="LA">LA</option>
+                  <option value="LV">LV</option>
+                  <option value="LB">LB</option>
+                  <option value="LS">LS</option>
+                  <option value="LR">LR</option>
+                  <option value="LY">LY</option>
+                  <option value="LI">LI</option>
+                  <option value="LT">LT</option>
+                  <option value="LU">LU</option>
+                  <option value="MO">MO</option>
+                  <option value="MK">MK</option>
+                  <option value="MG">MG</option>
+                  <option value="MW">MW</option>
+                  <option value="MY">MY</option>
+                  <option value="MV">MV</option>
+                  <option value="ML">ML</option>
+                  <option value="MT">MT</option>
+                  <option value="MQ">MQ</option>
+                  <option value="MR">MR</option>
+                  <option value="MU">MU</option>
+                  <option value="YT">YT</option>
+                  <option value="MX">MX</option>
+                  <option value="MD">MD</option>
+                  <option value="MC">MC</option>
+                  <option value="MN">MN</option>
+                  <option value="ME">ME</option>
+                  <option value="MS">MS</option>
+                  <option value="MA">MA</option>
+                  <option value="MZ">MZ</option>
+                  <option value="MM">MM</option>
+                  <option value="NA">NA</option>
+                  <option value="NR">NR</option>
+                  <option value="NP">NP</option>
+                  <option value="NL">NL</option>
+                  <option value="NC">NC</option>
+                  <option value="NZ">NZ</option>
+                  <option value="NI">NI</option>
+                  <option value="NE">NE</option>
+                  <option value="NG">NG</option>
+                  <option value="NU">NU</option>
+                  <option value="NF">NF</option>
+                  <option value="NO">NO</option>
+                  <option value="OM">OM</option>
+                  <option value="PK">PK</option>
+                  <option value="PS">PS</option>
+                  <option value="PA">PA</option>
+                  <option value="PG">PG</option>
+                  <option value="PY">PY</option>
+                  <option value="PE">PE</option>
+                  <option value="PH">PH</option>
+                  <option value="PN">PN</option>
+                  <option value="PL">PL</option>
+                  <option value="PT">PT</option>
+                  <option value="QA">QA</option>
+                  <option value="RE">RE</option>
+                  <option value="RO">RO</option>
+                  <option value="RU">RU</option>
+                  <option value="RW">RW</option>
+                  <option value="BL">BL</option>
+                  <option value="SH">SH</option>
+                  <option value="KN">KN</option>
+                  <option value="LC">LC</option>
+                  <option value="MF">MF</option>
+                  <option value="PM">PM</option>
+                  <option value="VC">VC</option>
+                  <option value="WS">WS</option>
+                  <option value="SM">SM</option>
+                  <option value="ST">ST</option>
+                  <option value="SA">SA</option>
+                  <option value="SN">SN</option>
+                  <option value="RS">RS</option>
+                  <option value="SC">SC</option>
+                  <option value="SL">SL</option>
+                  <option value="SG">SG</option>
+                  <option value="SX">SX</option>
+                  <option value="SK">SK</option>
+                  <option value="SI">SI</option>
+                  <option value="SB">SB</option>
+                  <option value="SO">SO</option>
+                  <option value="ZA">ZA</option>
+                  <option value="GS">GS</option>
+                  <option value="SS">SS</option>
+                  <option value="ES">ES</option>
+                  <option value="LK">LK</option>
+                  <option value="SD">SD</option>
+                  <option value="SR">SR</option>
+                  <option value="SJ">SJ</option>
+                  <option value="SZ">SZ</option>
+                  <option value="SE">SE</option>
+                  <option value="CH">CH</option>
+                  <option value="SY">SY</option>
+                  <option value="TJ">TJ</option>
+                  <option value="TZ">TZ</option>
+                  <option value="TH">TH</option>
+                  <option value="TL">TL</option>
+                  <option value="TG">TG</option>
+                  <option value="TK">TK</option>
+                  <option value="TO">TO</option>
+                  <option value="TT">TT</option>
+                  <option value="TN">TN</option>
+                  <option value="TR">TR</option>
+                  <option value="TM">TM</option>
+                  <option value="TC">TC</option>
+                  <option value="TV">TV</option>
+                  <option value="UG">UG</option>
+                  <option value="UA">UA</option>
+                  <option value="AE">AE</option>
+                  <option value="GB">GB</option>
+                  <option value="UY">UY</option>
+                  <option value="UZ">UZ</option>
+                  <option value="VU">VU</option>
+                  <option value="VE">VE</option>
+                  <option value="VN">VN</option>
+                  <option value="VG">VG</option>
+                  <option value="WF">WF</option>
+                  <option value="EH">EH</option>
+                  <option value="YE">YE</option>
+                  <option value="ZM">ZM</option>
+                  <option value="ZW">ZW</option>
+                </select>
+                <div class="error" data-err="country_code"></div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div class="field">
+                <label for="00NU8000005sqy1">Phone <span class="req">*</span></label>
+                <input id="00NU8000005sqy1" maxlength="40" name="00NU8000005sqy1" size="20" type="tel" class="input"
+                  placeholder="Phone number" />
+                <div class="error" data-err="00NU8000005sqy1"></div>
+              </div>
+
+              <div class="field">
+                <label for="00NU8000004zneF">Gender <span class="req">*</span></label>
+                <select id="00NU8000004zneF" name="00NU8000004zneF" title="Gender" class="select">
+                  <option value="">--None--</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Nonbinary">Nonbinary</option>
+                  <option value="Not Listed">Not Listed</option>
+                </select>
+                <div class="error" data-err="00NU8000004zneF"></div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div class="field">
+                <label for="00NcY000001s3ef">Date of Birth <span class="req">*</span></label>
+                <span class="dateInput dateOnlyInput">
+                  <input id="00NcY000001s3ef" size="12" type="date" class="input"
+                    placeholder="MM/DD/YYYY" />
+                  <input type="hidden" id="00NcY000001s3ef_sf" name="00NcY000001s3ef" />
+                </span>
+                <div class="error" data-err="00NcY000001s3ef"></div>
+              </div>
+
+              <div class="field">
+                <label for="00NVW0000016gZR">Preferred Communication <span class="req">*</span></label>
+                <select id="00NVW0000016gZR" name="00NVW0000016gZR" title="Preferred Communication" class="select">
+                  <option value="">--None--</option>
+                  <option value="Phone">Phone</option>
+                  <option value="Email">Email</option>
+                  <option value="Text">Text</option>
+                </select>
+                <div class="error" data-err="00NVW0000016gZR"></div>
+              </div>
+
+            </div>
+
+            <div class="section-header flex items-center gap-3 px-5 py-3 rounded-xl mb-4 mt-6">
+              <span class="uppercase tracking-wide text-sm font-semibold">Academic Information</span>
+            </div>
+
+            <div class="field mb-4">
+              <label for="00NcY000001s4Z7">Primary Learning Program <span class="req">*</span></label>
+              <select id="00NcY000001s4Z7" name="00NcY000001s4Z7" title="Primary Learning Program" class="select">
+                <option value="">--None--</option>
+                <option value="Certificate in Biblical Studies">Certificate in Biblical Studies</option>
+                <option value="Certificate in Theological Leadership">Certificate in Theological Leadership</option>
+                <option value="Doctor of Leadership">Doctor of Leadership</option>
+                <option value="Doctor of Ministry">Doctor of Ministry</option>
+                <option value="Master of Arts in Biblical Theology">Master of Arts in Biblical Theology</option>
+                <option value="Master of Arts in Leadership Studies">Master of Arts in Leadership Studies</option>
+                <option value="Master of Arts in Strategic Leadership">Master of Arts in Strategic Leadership</option>
+                <option value="Master of Arts in Theology">Master of Arts in Theology</option>
+                <option value="Master of Business Administration">Master of Business Administration</option>
+                <option value="Bachelor of Arts in Psychology">Bachelor of Arts in Psychology</option>
+                <option value="Bachelor of Arts in Theology">Bachelor of Arts in Theology</option>
+                <option value="Bachelor of Science in Business Administration">Bachelor of Science in Business
+                  Administration</option>
+                <option value="Bachelor of Science in Church Leadership">Bachelor of Science in Church Leadership
+                </option>
+                <option value="Bachelor of Science in Humanitarian Leadership">Bachelor of Science in Humanitarian
+                  Leadership</option>
+                <option value="Women in Leadership">Women in Leadership</option>
+              </select>
+              <div class="error" data-err="00NcY000001s4Z7"></div>
+            </div>
+
+            <div class="field mb-4">
+              <label for="00NcY000001s4cL">Primary Academic Term<span class="req">*</span></label>
+              <select id="00NcY000001s4cL" name="00NcY000001s4cL" title="Academic Term1" class="select" disabled>
+                <option value="">--None--</option>
+                <option value="Fall 2025">Fall 2025</option>
+                <option value="Spring 2026">Spring 2026</option>
+                <option value="Summer 2026">Summer 2026</option>
+                <option value="Fall 2026">Fall 2026</option>
+                <option value="Summer 2027">Summer 2027</option>
+                <option value="Spring 2027">Spring 2027</option>
+              </select>
+              <div class="error" data-err="00NcY000001s4cL"></div>
+            </div>
+
+            <div id="highest-degree-field" class="field mb-4 hidden">
+              <label for="00NU8000006DLSz">Highest Level of Degree Attained</label>
+              <select id="00NU8000006DLSz" name="00NU8000006DLSz" title="Highest Level of Degree Attained"
+                class="select">
+                <option value="">--None--</option>
+              </select>
+            </div>
+
+            <div class="field mb-4 flex items-center gap-2">
+              <input type="checkbox" id="00NU8000005pX8m" name="00NU8000005pX8m" class="checkbox" value="1" />
+              <label for="00NU8000005pX8m" class="!mb-0 cursor-pointer">Opting Secondary Program</label>
+            </div>
+
+            <div id="second-program-section" class="hidden">
+              <div class="field mb-4">
+                <label for="00NU8000005pX8o">Secondary Learning Program <span class="req">*</span></label>
+                <select id="00NU8000005pX8o" name="00NU8000005pX8o" title="Secondary Learning Program" class="select">
+                  <option value="">--None--</option>
+                  <option value="Certificate in Biblical Studies">Certificate in Biblical Studies</option>
+                  <option value="Certificate in Theological Leadership">Certificate in Theological Leadership</option>
+                  <option value="Doctor of Leadership">Doctor of Leadership</option>
+                  <option value="Doctor of Ministry">Doctor of Ministry</option>
+                  <option value="Master of Arts in Biblical Theology">Master of Arts in Biblical Theology</option>
+                  <option value="Master of Arts in Leadership Studies">Master of Arts in Leadership Studies</option>
+                  <option value="Master of Arts in Strategic Leadership">Master of Arts in Strategic Leadership</option>
+                  <option value="Master of Arts in Theology">Master of Arts in Theology</option>
+                  <option value="Master of Business Administration">Master of Business Administration</option>
+                  <option value="Bachelor of Arts in Psychology">Bachelor of Arts in Psychology</option>
+                  <option value="Bachelor of Arts in Theology">Bachelor of Arts in Theology</option>
+                  <option value="Bachelor of Science in Business Administration">Bachelor of Science in Business
+                    Administration</option>
+                  <option value="Bachelor of Science in Church Leadership">Bachelor of Science in Church Leadership
+                  </option>
+                  <option value="Bachelor of Science in Humanitarian Leadership">Bachelor of Science in Humanitarian
+                    Leadership</option>
+                  <option value="Women in Leadership">Women in Leadership</option>
+                </select>
+                <div class="error" data-err="00NU8000005pX8o"></div>
+              </div>
+
+              <div class="field mb-4">
+                <label for="00NU8000005pX8n">Secondary Academic Term <span class="req">*</span></label>
+                <select id="00NU8000005pX8n" name="00NU8000005pX8n" title="Secondary Academic Term" class="select">
+                  <option value="">--None--</option>
+                  <option value="Fall 2025">Fall 2025</option>
+                  <option value="Spring 2026">Spring 2026</option>
+                  <option value="Summer 2026">Summer 2026</option>
+                  <option value="Fall 2026">Fall 2026</option>
+                  <option value="Summer 2027">Summer 2027</option>
+                  <option value="Spring 2027">Spring 2027</option>
+                </select>
+                <div class="error" data-err="00NU8000005pX8n"></div>
+              </div>
+            </div>
+
+            <input type="hidden" id="lead_source" name="lead_source" value="Website" />
+
+            <button type="submit" class="btn-primary mt-4">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="success-view" class="hidden fade-in">
+        <div class="card p-8 md:p-12 text-center max-w-lg mx-auto">
+          <div class="success-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-semibold mb-3">Thank You for Your Interest!</h2>
+          <p class="text-gray-500 text-lg mb-6">Your inquiry has been successfully submitted. Our admissions team will
+            contact you within 2-3 business days.</p>
+          <div class="bg-purple-50 rounded-lg p-4 mb-6">
+            <p class="text-sm" style="color:var(--brand-purple);">Please check your email for a confirmation message
+              with next steps about your selected program.</p>
+          </div>
+          <button id="reset-btn" class="btn-primary" style="width:auto;">Submit Another Inquiry</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+
+    const addSecond = document.getElementById('00NU8000005pX8m');
+    const secondSection = document.getElementById('second-program-section');
+    const countrySelect = document.getElementById('country_code');
+    const primaryProgram = document.getElementById('00NcY000001s4Z7');
+    const primaryAcademicTerm = document.getElementById('00NcY000001s4cL');
+    const highestDegreeField = document.getElementById('highest-degree-field');
+    const highestDegree = document.getElementById('00NU8000006DLSz');
+    const secondaryProgram = document.getElementById('00NU8000005pX8o');
+    const secondaryAcademicTerm = document.getElementById('00NU8000005pX8n');
+
+    const programTermMapping = {
+      "Certificate in Biblical Studies": ["Fall 2025", "Spring 2026"],
+      "Certificate in Theological Leadership": ["Summer 2026", "Fall 2026"],
+      "Women in Leadership": ["Fall 2025", "Summer 2026"],
+      "Doctor of Leadership": ["Fall 2025", "Spring 2026", "Summer 2026"],
+      "Doctor of Ministry": ["Fall 2026", "Spring 2027", "Summer 2027"],
+      "Bachelor of Arts in Psychology": ["Fall 2025", "Spring 2026"],
+      "Bachelor of Arts in Theology": ["Summer 2026", "Fall 2026"],
+      "Bachelor of Science in Business Administration": ["Fall 2025", "Spring 2026", "Summer 2026"],
+      "Bachelor of Science in Church Leadership": ["Spring 2027", "Summer 2027"],
+      "Bachelor of Science in Humanitarian Leadership": ["Fall 2026", "Summer 2027", "Spring 2027"],
+      "Master of Business Administration": ["Spring 2027", "Summer 2027"],
+      "Master of Arts in Biblical Theology": ["Fall 2025", "Summer 2026"],
+      "Master of Arts in Leadership Studies": ["Fall 2026", "Spring 2027"],
+      "Master of Arts in Strategic Leadership": ["Fall 2025", "Spring 2026"],
+      "Master of Arts in Theology": ["Summer 2026", "Fall 2026"]
+    };
+
+    const isDegreeProgram = program => /^(Bachelor|Master|Doctor)/.test(program);
+    const secondaryCertificatePrograms = [
+      "Certificate in Biblical Studies",
+      "Certificate in Theological Leadership",
+      "Women in Leadership"
+    ];
+    const primaryProgramOptions = [...primaryProgram.options]
+      .map(option => option.value)
+      .filter(Boolean);
+
+    function fillTerms(select, program) {
+      select.innerHTML = '<option value="">--None--</option>';
+      (programTermMapping[program] || []).forEach(term => {
+        const option = new Option(term, term);
+        select.add(option);
+      });
+    }
+
+    function fillSecondaryPrograms(primaryProgramValue) {
+      secondaryProgram.innerHTML = '<option value="">--None--</option>';
+      if (!primaryProgramValue) return;
+
+      const availablePrograms = isDegreeProgram(primaryProgramValue)
+        ? secondaryCertificatePrograms
+        : primaryProgramOptions.filter(isDegreeProgram);
+
+      availablePrograms.forEach(program => secondaryProgram.add(new Option(program, program)));
+    }
+
+    function placeHighestDegreeField() {
+      if (!highestDegreeField || !primaryAcademicTerm || !secondaryAcademicTerm) return;
+
+      if (addSecond.checked) {
+        const secondaryField = secondaryAcademicTerm.closest('.field');
+        if (secondaryField) {
+          secondaryField.insertAdjacentElement('afterend', highestDegreeField);
+          return;
+        }
+      }
+
+      const primaryField = primaryAcademicTerm.closest('.field');
+      if (primaryField) {
+        primaryField.insertAdjacentElement('afterend', highestDegreeField);
+      }
+    }
+
+    function syncHighestDegree() {
+      const primaryValue = primaryProgram.value || '';
+      const secondaryValue = secondaryProgram.value || '';
+      const hasMasterOrDoctoralProgram = [primaryValue, secondaryValue].some(value =>
+        value.startsWith('Master') || value.startsWith('Doctor')
+      );
+
+      let degreeOptions = [];
+
+      if (primaryValue.startsWith('Master') || secondaryValue.startsWith('Master')) {
+        degreeOptions = ['Bachelor', 'Certificate'];
+      } else if (primaryValue.startsWith('Doctor') || secondaryValue.startsWith('Doctor')) {
+        degreeOptions = ['Masters', 'Bachelor', 'Certificate'];
+      }
+
+      highestDegreeField.classList.toggle('hidden', !hasMasterOrDoctoralProgram || degreeOptions.length === 0);
+      highestDegree.innerHTML = '<option value="">--None--</option>';
+      degreeOptions.forEach(degree => highestDegree.add(new Option(degree, degree)));
+      placeHighestDegreeField();
+    }
+
+    function moveField(fieldId, destinationId) {
+      const field = document.getElementById(fieldId)?.closest('.field');
+      const destination = document.getElementById(destinationId);
+      if (!field || !destination) return;
+
+      const sourceRow = field.parentElement;
+      destination.appendChild(field);
+      if (!sourceRow.querySelector('.field')) sourceRow.remove();
+    }
+
+    // Arrange the fields in the same order as the inquiry form design.
+    moveField('00NcY000001s3ef', 'personal-details-row');
+    moveField('00NU8000004zneF', 'personal-details-row');
+    moveField('country_code', 'personal-country-row');
+    moveField('email', 'contact-email-row');
+    moveField('00NU8000005sqy1', 'contact-phone-row');
+    moveField('00NVW0000016gZR', 'contact-preferred-row');
+
+    function syncPrimaryAcademicTerm() {
+      const hasPrimaryProgram = Boolean(primaryProgram.value);
+      primaryAcademicTerm.disabled = !hasPrimaryProgram;
+      if (!hasPrimaryProgram) {
+        primaryAcademicTerm.value = '';
+        clearErr('00NcY000001s4cL');
+      }
+    }
+
+    primaryProgram.addEventListener('change', () => {
+      fillTerms(primaryAcademicTerm, primaryProgram.value);
+      fillSecondaryPrograms(primaryProgram.value);
+      syncHighestDegree();
+      secondaryAcademicTerm.innerHTML = '<option value="">--None--</option>';
+      syncPrimaryAcademicTerm();
+    });
+    syncPrimaryAcademicTerm();
+
+    secondaryProgram.addEventListener('change', () => {
+      fillTerms(secondaryAcademicTerm, secondaryProgram.value);
+      syncHighestDegree();
+    });
+
+    fillTerms(primaryAcademicTerm, '');
+    fillSecondaryPrograms('');
+    syncHighestDegree();
+    fillTerms(secondaryAcademicTerm, '');
+
+    function setErr(name, msg) {
+      const el = document.querySelector(`[data-err="${name}"]`);
+      if (el) el.textContent = msg;
+      const input = document.querySelector(`[name="${name}"]`) || document.getElementById(name);
+      if (input) input.classList.toggle('invalid', !!msg);
+    }
+
+    function clearErr(name) {
+      setErr(name, '');
+    }
+
+    function fmtDateMDY(v) {
+      if (!v) return '';
+      if (v.includes('/')) return v;
+      const [y, m, d] = v.split('-');
+      if (!y || !m || !d) return v;
+      return `${m}/${d}/${y}`;
+    }
+
+    function showCountryNames() {
+      if (!countrySelect || !window.Intl?.DisplayNames) return;
+      const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+
+      [...countrySelect.options].forEach((option) => {
+        if (!option.value) return; // keep "--None--"
+        option.textContent = regionNames.of(option.value) || option.value;
+      });
+    }
+
+    showCountryNames();
+
+    addSecond.addEventListener('change', () => {
+      secondSection.classList.toggle('hidden', !addSecond.checked);
+      placeHighestDegreeField();
+      if (!addSecond.checked) {
+        document.getElementById('00NU8000005pX8o').value = '';
+        document.getElementById('00NU8000005pX8n').value = '';
+        clearErr('00NU8000005pX8o');
+        clearErr('00NU8000005pX8n');
+      }
+    });
+    function setErr(name, msg) {
+      const el = document.querySelector(`[data-err="${name}"]`);
+      if (el) el.textContent = msg;
+      const input = document.querySelector(`[name="${name}"]`) || document.getElementById(name);
+      if (input) input.classList.toggle('invalid', !!msg);
+    }
+
+    function clearErr(name) {
+      setErr(name, '');
+    }
+
+    function fmtDateMDY(v) {
+      if (!v) return '';
+      if (v.includes('/')) return v;
+      const [y, m, d] = v.split('-');
+      if (!y || !m || !d) return v;
+      return `${m}/${d}/${y}`;
+    }
+
+    addSecond.addEventListener('change', () => {
+      secondSection.classList.toggle('hidden', !addSecond.checked);
+      if (!addSecond.checked) {
+        document.getElementById('00NU8000005pX8o').value = '';
+        document.getElementById('00NU8000005pX8n').value = '';
+        clearErr('00NU8000005pX8o');
+        clearErr('00NU8000005pX8n');
+      }
+    });
+
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = e.target;
+      const dobInput = document.getElementById('00NcY000001s3ef');
+      const dobHidden = document.getElementById('00NcY000001s3ef_sf');
+
+      const data = {
+        first_name: f.first_name.value.trim(),
+        last_name: f.last_name.value.trim(),
+        email: f.email.value.trim(),
+        country_code: f.country_code.value,
+        '00NU8000005sqy1': f['00NU8000005sqy1'].value.trim(),
+        '00NU8000004zneF': f['00NU8000004zneF'].value,
+        '00NcY000001s3ef': dobInput.value.trim(),
+        '00NVW0000016gZR': f['00NVW0000016gZR'].value,
+        '00NcY000001s4Z7': f['00NcY000001s4Z7'].value,
+        '00NcY000001s4cL': f['00NcY000001s4cL'].value,
+        '00NU8000006DLSz': f['00NU8000006DLSz'].value
+      };
+
+      let ok = true;
+      const required = {
+        first_name: 'First name is required',
+        last_name: 'Last name is required',
+        email: 'Email is required',
+        country_code: 'Country is required',
+        '00NU8000005sqy1': 'Phone number is required',
+        '00NU8000004zneF': 'Gender is required',
+        '00NcY000001s3ef': 'Date of birth is required',
+        '00NVW0000016gZR': 'Please select a preferred communication method',
+        '00NcY000001s4Z7': 'Please select a primary learning program'
+      };
+
+      for (const k in required) {
+        if (!data[k]) {
+          setErr(k, required[k]);
+          ok = false;
+        } else {
+          clearErr(k);
+        }
+      }
+
+      if (data['00NcY000001s4Z7'] && !data['00NcY000001s4cL']) {
+        setErr('00NcY000001s4cL', 'Please select an academic term');
+        ok = false;
+      } else {
+        clearErr('00NcY000001s4cL');
+      }
+
+      if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+        setErr('email', 'Please enter a valid email address');
+        ok = false;
+      }
+
+      if (addSecond.checked) {
+        if (!f['00NU8000005pX8o'].value) {
+          setErr('00NU8000005pX8o', 'Please select a secondary learning program');
+          ok = false;
+        } else {
+          clearErr('00NU8000005pX8o');
+        }
+
+        if (!f['00NU8000005pX8n'].value) {
+          setErr('00NU8000005pX8n', 'Please select a secondary academic term');
+          ok = false;
+        } else {
+          clearErr('00NU8000005pX8n');
+        }
+      }
+
+      if (!ok) return;
+
+      // Salesforce expects MM/DD/YYYY; the visible <input type="date"> can only hold
+      // ISO (YYYY-MM-DD), so the formatted value is pushed into a same-named hidden
+      // field which is what actually gets posted to Salesforce.
+      dobHidden.value = fmtDateMDY(data['00NcY000001s3ef']);
+
+      const btn = f.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      const showSuccess = () => {
+        document.getElementById('form-view').classList.add('hidden');
+        document.getElementById('success-view').classList.remove('hidden');
+        f.reset();
+        dobHidden.value = '';
+        addSecond.checked = false;
+        secondSection.classList.add('hidden');
+        fillTerms(primaryAcademicTerm, '');
+        fillSecondaryPrograms('');
+        syncHighestDegree('');
+        fillTerms(secondaryAcademicTerm, '');
+        syncPrimaryAcademicTerm();
+        btn.disabled = false;
+        btn.textContent = 'Submit Inquiry';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      // A real browser form POST to a hidden iframe target - the same mechanism
+      // Salesforce's own Web-to-Lead docs use. Unlike a fetch() with mode:'no-cors',
+      // this isn't silently dropped by ad blockers/extensions that specifically
+      // target XHR/fetch calls to servlet.WebToLead, and it matches exactly what a
+      // native <form> submit sends (verified against the org directly).
+      document.getElementById('w2l_target').addEventListener('load', showSuccess, { once: true });
+      f.submit();
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      document.getElementById('success-view').classList.add('hidden');
+      document.getElementById('form-view').classList.remove('hidden');
+    });
+  </script>
+</body>
+
+</html>
